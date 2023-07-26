@@ -41,8 +41,10 @@ def seller_login(request):
 
 def customer_signup(request):
     message = ''
-    if request.method == 'POST':
-        first_name = request.POST['fname']
+    if request.method == 'POST':  # when user submit the form
+        # here fname is the name attribute given in form input
+        # fetching values from form data and storing in variable
+        first_name = request.POST['fname'] 
         last_name = request.POST['lastname']
         email = request.POST['email']
         gender = request.POST['gender']
@@ -50,12 +52,18 @@ def customer_signup(request):
         country = request.POST['country']
         password = request.POST['password']
 
-        if request.method == 'POST':
-            customer = Customer(first_name = first_name, last_name = last_name, gender = gender, email = email, 
-                                city = city, country = country, password = password)
-            
-            customer.save()
-            message = 'Registration Succesful'
+        
+        # to insert a data in a database table using ORM, we need to 
+        # 1. Create an object of the model class and passing values to class properties
+        customer = Customer(first_name = first_name, last_name = last_name, gender = gender, email = email, 
+                            city = city, country = country, password = password)
+        
+        # 2. call object.save() method
+        # here save() is a method in ORM that is equivalent to 'insert into tablename' query
+        customer.save()
+        message = 'Registration Succesful'
+
+        # now passing response message to html in a dictionary format
 
 
     return render(request, 'customer/customer_signup.html', {'message': message})
