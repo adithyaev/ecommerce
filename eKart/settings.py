@@ -81,9 +81,10 @@ DATABASES = {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'NAME':'ekart_db',
         'USER':'postgres',
-        'PASSWORD':'Python@i3',
+        'PASSWORD':'root',
         'HOST':'localhost',       
         'PORT':'5432',
+        
     }
 }
 
@@ -123,6 +124,8 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
 
 STATIC_URL = 'static/'
+MEDIA_ROOT = os.path.join(BASE_DIR,'media')
+MEDIA_ROOT ='/media/'
  
 STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
 # Default primary key field type
