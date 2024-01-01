@@ -10,11 +10,12 @@
           <div class="card-body">
           <h4 class="card-title mb-4">Seller Sign in</h4>
           <form>
+            {% csrf_token %}
               <div class="form-group">
-                 <input type="text" class="form-control" placeholder="Seller Id" >
+                 <input type="text" class="form-control" placeholder="Seller Id"  name = 'sellerId'>
               </div> <!-- form-group// -->
               <div class="form-group">
-                <input type="password" class="form-control" placeholder="Password" >
+                <input type="password" class="form-control" placeholder="Password" name = 'password' >
               </div> <!-- form-group// -->
               
               <div class="form-group">
@@ -22,9 +23,10 @@
                
               </div> <!-- form-group form-check .// -->
               <div class="form-group">
-                  <!-- <button type="submit" class="btn btn-primary btn-block"> Login  </button> -->
-                  <a href="{% url 'Seller:seller_home' %}" class="btn btn-primary btn-block">Login</a>
+                  <button type="submit" class="btn btn-primary btn-block"> Login  </button>
+                  <!-- <a href="{% url 'Seller:seller_home' %}" class="btn btn-primary btn-block">Login</a> -->
               </div> <!-- form-group// -->    
+              {{status}}
           </form>
           </div> <!-- card-body.// -->
         </div> <!-- card .// -->
